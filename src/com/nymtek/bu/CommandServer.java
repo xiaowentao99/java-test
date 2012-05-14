@@ -35,10 +35,8 @@ public class CommandServer extends Thread {
 	public CommandServer(){
 		super("Command server thread");
 		try {
-			
 			socket = new DatagramSocket(0);
 			socket.setReceiveBufferSize(2048);
-			
 		} catch (SocketException e) {
 			e.printStackTrace();
 		}
@@ -131,7 +129,6 @@ public class CommandServer extends Thread {
 				}
 				try {
 					data = this.receiveData();
-					
 				} catch (SocketTimeoutException e) {
 					logger.error("SocketTimeoutException @CommandServer @this.receiveData() ip("+ip+") :  "+e.toString());
 					saveTimeout(ip);

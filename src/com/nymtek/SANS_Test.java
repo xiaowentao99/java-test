@@ -8,7 +8,7 @@ import com.nymtek.bu.*;
 public class SANS_Test {
 
 	public static void main(String args[]){
-PropertyConfigurator.configure("log4j.properties");
+		PropertyConfigurator.configure("log4j.properties");
 		
 		CommonConfig.instance();
 		/*
@@ -22,9 +22,20 @@ PropertyConfigurator.configure("log4j.properties");
 		ps.start();
 		pis.start();
 		*/
-		PacketTcpServer s = new PacketTcpServer();
-		s.start();
-	//	System.out.print(System.currentTimeMillis());
+		
+		/*
+		 * test for tcp
+		 * */
+		
+//		PacketTcpServer s = new PacketTcpServer();
+//		s.start();
+	
+		/*
+		 * Test for timeRespones
+		 * */
+		PacketServerTimeResponse rs = new PacketServerTimeResponse(30000);
+		rs.start();
+		//	System.out.print(System.currentTimeMillis());
 	}
 	
 }

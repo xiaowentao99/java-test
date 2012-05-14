@@ -93,10 +93,9 @@ public class PacketTcpClient extends Thread {
 		while (true) {
 			try {
 				if (this.client.isConnected() && !this.client.isInputShutdown()) {
-				//	this.client.setSoTimeout(5*1000);
 					len = in.read(buffer);
 					if (len != -1) {
-						logger.info("receive data len: " + len + " data:"
+						logger.info("receive data len: " + len + "data:"
 								+ new String(buffer, 0, len));
 						// // to save data
 					//	this.parsePacket(buffer, len);
@@ -125,7 +124,6 @@ public class PacketTcpClient extends Thread {
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-				break;
 			}
 
 		}
